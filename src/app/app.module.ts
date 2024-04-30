@@ -12,6 +12,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
+import { CadastroComponent } from './cadastro/cadastro.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 interface Food {
@@ -22,7 +24,8 @@ interface Food {
 @NgModule({
   declarations: [
     AppComponent,
-    TarefaComponent
+    TarefaComponent,
+    CadastroComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ interface Food {
     MatButtonModule,
     MatDividerModule,
     MatIconModule,
+    ReactiveFormsModule
     ],
 
   providers: [],
