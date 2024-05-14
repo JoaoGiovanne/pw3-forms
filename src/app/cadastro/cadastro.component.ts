@@ -1,4 +1,4 @@
-import { FormBuilder, FormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
 
 @Component({
@@ -13,8 +13,8 @@ export class CadastroComponent {
   constructor(private formBuilder: FormBuilder){ }
 
   cadastroForm = this.formBuilder.group({
-    nome : [null],
-    email : [null],
+    nome : this.formBuilder.control('', [Validators.required]),
+    email : this.formBuilder.control('', [Validators.email, Validators.required]),
     usuario: [null],
     senha: [null],
     confirmarSenha: [null]
@@ -23,5 +23,7 @@ export class CadastroComponent {
   onEnviar(){
     console.table(this.cadastroForm.value);
   }
+
+
 
 }

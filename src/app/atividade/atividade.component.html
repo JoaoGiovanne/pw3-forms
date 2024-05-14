@@ -1,11 +1,13 @@
 <div class="container">
   <form class="example-form" [formGroup]="cadastroForm" (ngSubmit)="onEnviar()">
-    <h1 class="title">CADASTRO</h1>
+    <h1 class="title">Atividade</h1>
     <mat-form-field class="example-full-width">
-        <mat-label>Cadastro</mat-label>
+        <mat-label>Nome</mat-label>
         <input matInput placeholder="Ex. Horácio Augusto da Silveira" formControlName="nome">
 
-        <mat-error *ngIf="cadastroForm.controls.nome.hasError('required')">Nome é obrigatório</mat-error>
+        <mat-error *ngIf="cadastroForm.controls.nome.hasError('required')">Nome' é obrigatório</mat-error>
+        <mat-error *ngIf="cadastroForm.controls.nome.hasError('minlength')">'Nome' deve ter entre 3 e 35 caracteres</mat-error>
+        <mat-error *ngIf="cadastroForm.controls.nome.hasError('maxlength')">'Nome' deve ter entre 3 e 35 caracteres</mat-error>
 
     </mat-form-field>
 
@@ -15,8 +17,9 @@
         <mat-label>E-mail</mat-label>
         <input matInput placeholder="Ex. horacio@etec.sp.gov.br" formControlName="email">
 
-        <mat-error *ngIf="cadastroForm.controls.email.hasError('required')">E-mail é obrigatório</mat-error>
+        <mat-error *ngIf="cadastroForm.controls.email.hasError('required')">'E-mail' é obrigatório</mat-error>
         <mat-error *ngIf="cadastroForm.controls.email.hasError('email')">E-mail inválido</mat-error>
+        <mat-error *ngIf="cadastroForm.controls.email.hasError('maxlength')">'E-Mail' deve ter até 40 caracteres</mat-error>
 
     </mat-form-field>
 
@@ -26,10 +29,12 @@
         <mat-label>Nome de Usuário</mat-label>
         <input matInput placeholder="Ex. horacio.augusto" formControlName="usuario">
 
-        <mat-error *ngIf="false">Nome de Usuário inválido</mat-error>
+        <mat-error *ngIf="cadastroForm.controls.usuario.hasError('required')">'Nome de Usuário' é obrigatório</mat-error>
+        <mat-error *ngIf="cadastroForm.controls.usuario.hasError('maxlength')">'Nome de Usuário' deve ter até 15 caracteres</mat-error>
+        <mat-error *ngIf="cadastroForm.controls.usuario.hasError('contemEspacos')">'Nome de Usuário' não deve conter espaços</mat-error>
     </mat-form-field>
 
-    <br />
+    <br />  
 
     <mat-form-field>
         <mat-label>Senha</mat-label>
@@ -38,7 +43,7 @@
           <mat-icon>{{ocultarSenha ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
 
-        <mat-error *ngIf="false">Senha é obrigatório</mat-error>
+        <mat-error *ngIf="cadastroForm.controls.senha.hasError('required')">'Senha' é obrigatório</mat-error>
 
       </mat-form-field>
 

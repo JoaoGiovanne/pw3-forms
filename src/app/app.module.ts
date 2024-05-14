@@ -14,6 +14,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AtividadeComponent } from './atividade/atividade.component';
 
 
 interface Food {
@@ -25,7 +26,8 @@ interface Food {
   declarations: [
     AppComponent,
     TarefaComponent,
-    CadastroComponent
+    CadastroComponent,
+    AtividadeComponent
   ],
   imports: [
     BrowserModule,
